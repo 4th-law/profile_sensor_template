@@ -1,0 +1,99 @@
+# SERVO
+testDefaults: &testDefaults
+  docker:
+  # Primary container image where all steps run.
+    - image: node:latest
+  environment:
+    TEST_RESULTS: /tmp/test-results
+
+version: 2
+jobs:
+  build:
+    docker:
+    # Primary container image where all steps run.
+      - image: node:latest
+    steps:
+      - checkout
+      - run:
+          name: Authorize NPMJS
+          command: |
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ./.npmrc
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - run:
+          name: Build Source
+          command: yarn build-src
+      - persist_to_workspace:
+          # Must be an absolute path, or relative path from working_directory
+          root: /root/project
+          # Must be relative path from root
+          paths:
+            - ./*
+
+  unitTests:
+    <<: *testDefaults
+    steps:
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: /root/project
+      - run:
+          name: Run Unit Tests
+          command: |
+            mkdir ./testData
+            NODE_ENV=test ./node_modules/.bin/nyc ./node_modules/.bin/mocha --exit
+          environment:
+            MOCHA_FILE: ./testData/test-results.xml
+      - run:
+          name: Generate Coverage Report
+          command: |
+            ./node_modules/.bin/nyc report --reporter=lcov
+      - run:
+          name: Report Coverage to Codacy
+          command: |
+            cat ./.coverage/lcov.info | ./node_modules/.bin/codacy-coverage --language typescript ;
+      - store_test_results:
+          path: ./testData
+      - store_artifacts:
+          path: ./testData
+
+  deploy:
+    docker:
+    # Primary container image where all steps run.
+      - image: node:latest
+    steps:
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: /root/project
+      - store_test_results:
+          path: ./testData
+      - store_artifacts:
+          path: ./testData
+      - run:
+          name: Publish to NPM
+          command: |
+            npm run 2npm
+
+workflows:
+  version: 2
+  dev_stage_prod:
+    jobs:
+      - build
+      - unitTests:
+          requires:
+            - build
+      - hold:
+          type: approval
+          requires:
+            - unitTests
+          filters:
+            branches:
+              only:
+                - master
+      - deploy:
+          requires:
+            - hold
+          filters:
+            branches:
+              only:
+                - master
