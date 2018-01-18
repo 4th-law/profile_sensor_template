@@ -4,19 +4,13 @@
   "description": "A sensor profile template",
   "main": "index.js",
   "repository": "git@github.com:4th-law/profile_sensor_template.git",
-  "author": "Hazmatius <alexbaranski@gmail.com>",
-  "license": "MIT",
+  "author": "Hazmatius <alexb@4th-law.com>",
   "dependencies": {
-    "async": "^2.6.0",
-    "config": "^1.29.2",
-    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "@4th-law/typings": "^0.4.1",
-    "@types/async": "^2.0.47",
     "@types/chai": "^4.1.0",
     "@types/config": "^0.0.33",
-    "@types/lodash": "^4.14.92",
     "@types/mocha": "^2.2.46",
     "@types/typescript": "^2.0.0",
     "chai": "^4.1.2",
