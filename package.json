@@ -2,7 +2,7 @@
   "name": "@4th-law/profile_sensor_template",
   "version": "0.1.0",
   "description": "A sensor profile template",
-  "main": "index.js",
+  "main": "index.ts",
   "repository": "git@github.com:4th-law/profile_sensor_template.git",
   "author": "Hazmatius <alexb@4th-law.com>",
   "dependencies": {
