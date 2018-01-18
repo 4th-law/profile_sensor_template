@@ -30,21 +30,4 @@ export default class SensorTemplate extends Typings.Sensor {
   public constructor() {
     super()
   }
-
-  public get data() {
-    return this._lastDataPoint as NData.ISensor
-  }
-
-  public get info() {
-    return {
-      category: this._category,
-      type: this._type,
-      make: this._make,
-      model: this._model,
-      id: this._id,
-      version: this._version,
-      sampleInterval: this._sampleInterval,
-      specs: this._specs,
-    } as NProfile.IInfo
-  }
 }
