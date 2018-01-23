@@ -54,4 +54,4 @@ Each of the above function calls can be overwritten to define functionality spec
 
 Any other functions you need to make your profile work, such as helper functions, should also be included inside of index.ts as private functions.
 
-If there are variables that you'd like to control externally to the actual javascript code, you can do so through the config.json file, provided in the config folder under the main module directory. Simply use the config node module to pull values encoded in the config.json file into your profile, as is shown for example by the setting of the \_sampleInterval variable in our constructor.
+If there are variables that you'd like to control externally to the actual javascript code, you can do so through the default.json file, provided in the config folder under the main module directory. Simply use the config node module to pull values encoded in the default.json file into your profile, as is shown for example by the setting of the \_sampleInterval variable in our constructor.
