@@ -3,6 +3,7 @@
 
 /** 4th Law Typings module, to ensure consistency and decrease the probabiliby of errors */
 import * as Typings from "@4th-law/typings-public"
+import * as config from "config"
 
 export default class SensorTemplate extends Typings.Sensor {
   /**
@@ -35,7 +36,7 @@ export default class SensorTemplate extends Typings.Sensor {
     this._model = "insert model"
     this._id = "insert id"
     this._version = "v0.1.0"
-    this._sampleInterval = 1
+    this._sampleInterval = config.get("profile.sampleInterval")
     this._specs = {}
   }
 }
