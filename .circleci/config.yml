@@ -57,23 +57,6 @@ jobs:
       - store_artifacts:
           path: ./testData
 
-  deploy:
-    docker:
-    # Primary container image where all steps run.
-      - image: node:latest
-    steps:
-      - attach_workspace:
-          # Must be absolute path or relative path from working_directory
-          at: /root/project
-      - store_test_results:
-          path: ./testData
-      - store_artifacts:
-          path: ./testData
-      - run:
-          name: Publish to NPM
-          command: |
-            npm run 2npm
-
 workflows:
   version: 2
   dev_stage_prod:
@@ -82,18 +65,3 @@ workflows:
       - unitTests:
           requires:
             - build
-      - hold:
-          type: approval
-          requires:
-            - unitTests
-          filters:
-            branches:
-              only:
-                - master
-      - deploy:
-          requires:
-            - hold
-          filters:
-            branches:
-              only:
-                - master
