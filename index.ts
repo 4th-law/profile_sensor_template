@@ -2,7 +2,7 @@
 /** profile_sensor_template */
 
 /** 4th Law Typings module, to ensure consistency and decrease the probabiliby of errors */
-import * as Typings from "@4th-law/typings"
+import * as Typings from "@4th-law/typings-public"
 
 export default class SensorTemplate extends Typings.Sensor {
   /**
@@ -16,7 +16,7 @@ export default class SensorTemplate extends Typings.Sensor {
    * @param {NData.ISensor} _lastDataPoint - the last data point sampled by this profile
    * @param {object} _specs - any information specific to this profile, such as the resolution of a camera
    */
-  protected _category = "SENSOR" as NProfile.ECategory.SENSOR
+  protected _category = "SENSOR" as NProfile.ECategory
   protected _type = "[insert type]" as NProfile.EType
   protected _make: string
   protected _model: string
@@ -29,5 +29,13 @@ export default class SensorTemplate extends Typings.Sensor {
 
   public constructor() {
     super()
+    this._category = "SENSOR" as NProfile.ECategory
+    this._type = "OPTICAL" as NProfile.EType
+    this._make = "insert make"
+    this._model = "insert model"
+    this._id = "insert id"
+    this._version = "v0.1.0"
+    this._sampleInterval = 1
+    this._specs = {}
   }
 }

@@ -41,7 +41,6 @@ describe("Sensor Profile Template", () => {
     assert.typeOf(data.name, "string")
     assert.typeOf(data.id, "string")
     assert.typeOf(data.ts, "number")
-    data.data.should.exist
     done()
   })
 })

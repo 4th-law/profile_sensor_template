@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@4th-law/typings@^0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@4th-law/typings/-/typings-0.4.1.tgz#f55bb37170b6a5ad8fcbfc9107a295367b0a985e"
+"@4th-law/typings-public@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@4th-law/typings-public/-/typings-public-0.1.1.tgz#7e9697c2863167353097b0258ae71e024ff9cd38"
   dependencies:
     "@types/node" "^9.3.0"
     moment "^2.20.1"
@@ -2290,8 +2290,8 @@ sorted-object@~2.0.0:
   resolved "https://registry.yarnpkg.com/sorted-object/-/sorted-object-2.0.1.tgz#7d631f4bd3a798a24af1dffcfbfe83337a5df5fc"
 
 source-map-support@^0.5.0:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.1.tgz#72291517d1fd0cb9542cee6c27520884b5da1a07"
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.2.tgz#1a6297fd5b2e762b39688c7fc91233b60984f0a5"
   dependencies:
     source-map "^0.6.0"
 
@@ -2510,8 +2510,8 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
 
 type-detect@^4.0.0:
-  version "4.0.6"
-  resolved "https://registry.yarnpkg.com/type-detect/-/type-detect-4.0.6.tgz#88cbce3d13bc675a63f840b3225c180f870786d7"
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/type-detect/-/type-detect-4.0.7.tgz#862bd2cf6058ad92799ff5a5b8cf7b6cec726198"
 
 typedarray@^0.0.6:
   version "0.0.6"
